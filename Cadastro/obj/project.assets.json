@@ -2,26 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "EntityFramework/6.0.0": {
-        "type": "package"
-      },
-      "EntityFramework.SqlServerCompact/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework": "6.0.0",
-          "Microsoft.SqlServer.Compact": "4.0.0"
-        },
-        "compile": {
-          "lib/net40/EntityFramework.SqlServerCompact.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/EntityFramework.SqlServerCompact.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -215,6 +195,18 @@
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -502,17 +494,6 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
             "related": ".pdb;.xml"
           }
-        }
-      },
-      "Microsoft.SqlServer.Compact/4.0.8852.1": {
-        "type": "package",
-        "compile": {
-          "lib/net40/System.Data.SqlServerCe.Entity.dll": {},
-          "lib/net40/System.Data.SqlServerCe.dll": {}
-        },
-        "runtime": {
-          "lib/net40/System.Data.SqlServerCe.Entity.dll": {},
-          "lib/net40/System.Data.SqlServerCe.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.7.0": {
@@ -908,46 +889,6 @@
     }
   },
   "libraries": {
-    "EntityFramework/6.0.0": {
-      "sha512": "y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
-      "type": "package",
-      "path": "entityframework/6.0.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Content/App.config.transform",
-        "Content/Web.config.transform",
-        "entityframework.6.0.0.nupkg.sha512",
-        "entityframework.nuspec",
-        "tools/EntityFramework.PowerShell.Utility.dll",
-        "tools/EntityFramework.PowerShell.dll",
-        "tools/EntityFramework.psd1",
-        "tools/EntityFramework.psm1",
-        "tools/about_EntityFramework.help.txt",
-        "tools/init.ps1",
-        "tools/install.ps1",
-        "tools/migrate.exe"
-      ]
-    },
-    "EntityFramework.SqlServerCompact/6.0.0": {
-      "sha512": "ntMccLGwZskR579MO1dhz8lMT7mnemG1bcMAqWChWcI/M2keCw90zNEZdDw8Fivr4gCt7t8RgXHZ7K17qRTeYw==",
-      "type": "package",
-      "path": "entityframework.sqlservercompact/6.0.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Content/App.config.transform",
-        "Content/Web.config.transform",
-        "entityframework.sqlservercompact.6.0.0.nupkg.sha512",
-        "entityframework.sqlservercompact.nuspec",
-        "lib/net40/EntityFramework.SqlServerCompact.dll",
-        "lib/net40/EntityFramework.SqlServerCompact.xml",
-        "tools/EntityFramework.PowerShell.dll",
-        "tools/install.ps1"
-      ]
-    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -1217,6 +1158,30 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Tools/6.0.0": {
+      "sha512": "m9e6nFnkyRdKcrTFO8rl3ZihCIKrYdECw+fHZVbKz6TBMwKhih/N0sjPnNt0k7sZPvI8izKPkh1d+z4OR2qgXQ==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.tools/6.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/_._",
+        "microsoft.entityframeworkcore.tools.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.nuspec",
+        "tools/EntityFrameworkCore.PS2.psd1",
+        "tools/EntityFrameworkCore.PS2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-x86/ef.exe",
+        "tools/netcoreapp2.0/any/ef.dll",
+        "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -1841,39 +1806,6 @@
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
         "microsoft.openapi.1.2.3.nupkg.sha512",
         "microsoft.openapi.nuspec"
-      ]
-    },
-    "Microsoft.SqlServer.Compact/4.0.8852.1": {
-      "sha512": "KZ90xErxdYagU+T/FiYzK+1xJbk78Rlcks8kYYaoPRsoGWOnYrfklOiBplwTbubDzF+44gtptjN3XxgXSNQ0Rg==",
-      "type": "package",
-      "path": "microsoft.sqlserver.compact/4.0.8852.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Content/web.config.transform",
-        "NativeBinaries/amd64/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest",
-        "NativeBinaries/amd64/Microsoft.VC90.CRT/README_ENU.txt",
-        "NativeBinaries/amd64/Microsoft.VC90.CRT/msvcr90.dll",
-        "NativeBinaries/amd64/sqlceca40.dll",
-        "NativeBinaries/amd64/sqlcecompact40.dll",
-        "NativeBinaries/amd64/sqlceer40EN.dll",
-        "NativeBinaries/amd64/sqlceme40.dll",
-        "NativeBinaries/amd64/sqlceqp40.dll",
-        "NativeBinaries/amd64/sqlcese40.dll",
-        "NativeBinaries/x86/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest",
-        "NativeBinaries/x86/Microsoft.VC90.CRT/README_ENU.txt",
-        "NativeBinaries/x86/Microsoft.VC90.CRT/msvcr90.dll",
-        "NativeBinaries/x86/sqlceca40.dll",
-        "NativeBinaries/x86/sqlcecompact40.dll",
-        "NativeBinaries/x86/sqlceer40EN.dll",
-        "NativeBinaries/x86/sqlceme40.dll",
-        "NativeBinaries/x86/sqlceqp40.dll",
-        "NativeBinaries/x86/sqlcese40.dll",
-        "SQLCE_EULA_ENU.rtf",
-        "lib/net40/System.Data.SqlServerCe.Entity.dll",
-        "lib/net40/System.Data.SqlServerCe.dll",
-        "microsoft.sqlserver.compact.4.0.8852.1.nupkg.sha512",
-        "microsoft.sqlserver.compact.nuspec"
       ]
     },
     "Microsoft.Win32.Registry/4.7.0": {
@@ -2529,10 +2461,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "EntityFramework.SqlServerCompact >= 6.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.0",
+      "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -2581,11 +2514,11 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "EntityFramework.SqlServerCompact": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.0, )"
           },
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+          "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.0, )"
           },
@@ -2596,6 +2529,12 @@
             "version": "[6.0.0, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.0, )"
           },
@@ -2626,37 +2565,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "EntityFramework.SqlServerCompact 6.0.0 depende de Microsoft.SqlServer.Compact (>= 4.0.0), mas Microsoft.SqlServer.Compact 4.0.0 não foi encontrado. A melhor correspondência aproximada de Microsoft.SqlServer.Compact 4.0.8852.1 foi resolvida.",
-      "libraryId": "Microsoft.SqlServer.Compact",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'EntityFramework.SqlServerCompact 6.0.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
-      "libraryId": "EntityFramework.SqlServerCompact",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'Microsoft.SqlServer.Compact 4.0.8852.1' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
-      "libraryId": "Microsoft.SqlServer.Compact",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

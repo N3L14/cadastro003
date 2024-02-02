@@ -6,6 +6,7 @@ C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Cadastro.runtimeconfig.jso
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Cadastro.dll
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Cadastro.pdb
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Humanizer.dll
+C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -63,7 +64,3 @@ C:\Users\nelia\source\repos\Cadastro\obj\Debug\net6.0\refint\Cadastro.dll
 C:\Users\nelia\source\repos\Cadastro\obj\Debug\net6.0\Cadastro.pdb
 C:\Users\nelia\source\repos\Cadastro\obj\Debug\net6.0\Cadastro.genruntimeconfig.cache
 C:\Users\nelia\source\repos\Cadastro\obj\Debug\net6.0\ref\Cadastro.dll
-C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
-C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\EntityFramework.SqlServerCompact.dll
-C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\System.Data.SqlServerCe.dll
-C:\Users\nelia\source\repos\Cadastro\bin\Debug\net6.0\System.Data.SqlServerCe.Entity.dll

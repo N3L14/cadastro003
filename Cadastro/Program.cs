@@ -2,6 +2,8 @@ using Cadastro.Data;
 using Cadastro.Repositorios;
 using Cadastro.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Cadastro
 {
@@ -10,6 +12,13 @@ namespace Cadastro
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configure the database
+            builder.Services.AddDbContext<CadastroDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
+            // Configure dependencies
+            builder.Services.AddScoped<IPessoaFisicaRepositorio, PessoaFisicaRepositorio>();
 
             // Add services to the container.
 
@@ -20,14 +29,7 @@ namespace Cadastro
 
             var app = builder.Build();
 
-            // Configure the database
-            builder.Services.AddEntityFrameworkSqlServer()
-                .AddDbContext<CadastroDbContext>(
-                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
-                );
 
-            // Configure dependencies
-            builder.Services.AddScoped<IPessoaFisicaRepositorio, PessoaFisicaRepositorio>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

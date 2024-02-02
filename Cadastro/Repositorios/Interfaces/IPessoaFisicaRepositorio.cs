@@ -8,6 +8,6 @@ namespace Cadastro.Repositorios.Interfaces
         Task<PessoaFisicaModel> BuscarId(int id);
         Task<PessoaFisicaModel> Adicionar(PessoaFisicaModel pessoaFisica);
         Task<PessoaFisicaModel> Atualizar(PessoaFisicaModel pessoaFisica, int id);
-        Task<bool> Deletar(int Id);
+        Task<bool> Deletar(int id);
     }
 }

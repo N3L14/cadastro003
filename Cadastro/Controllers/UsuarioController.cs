@@ -1,5 +1,4 @@
 ﻿using Cadastro.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cadastro.Controllers
@@ -9,7 +8,7 @@ namespace Cadastro.Controllers
     public class UsuarioController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<List<UsuarioModel>> BuscarUsuarios() 
+        public ActionResult<List<UsuarioModel>> BuscarUsuarios()
         {
             return Ok();
         }

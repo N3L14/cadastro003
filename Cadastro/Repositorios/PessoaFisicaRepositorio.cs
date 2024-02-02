@@ -26,8 +26,8 @@ namespace Cadastro.Repositorios
 
         public async Task<PessoaFisicaModel> Adicionar(PessoaFisicaModel pessoaFisica)
         {
-            _dbContext.PessoaFisica.Add(pessoaFisica);
-            _dbContext.SaveChanges();
+            await _dbContext.PessoaFisica.AddAsync(pessoaFisica);
+            await _dbContext.SaveChangesAsync();
 
             return pessoaFisica;
         }
@@ -36,7 +36,7 @@ namespace Cadastro.Repositorios
         {
             PessoaFisicaModel pessoaFisicaPorId = await BuscarId(id);
 
-            if(pessoaFisicaPorId == null)
+            if (pessoaFisicaPorId == null)
             {
                 throw new Exception($"Pessoa Fisica com o ID: {id} não foi localizada no banco de dados.");
             }
@@ -48,15 +48,26 @@ namespace Cadastro.Repositorios
             pessoaFisicaPorId.CPF = pessoaFisica.CPF;
             pessoaFisicaPorId.RG = pessoaFisica.RG;
 
+            _dbContext.PessoaFisica.Update(pessoaFisicaPorId);
+            await _dbContext.SaveChangesAsync();
 
-
+            return pessoaFisicaPorId;
         }
 
 
 
-        public Task<bool> Deletar(int Id)
+        public async Task<bool> Deletar(int id)
         {
-            throw new NotImplementedException();
+            PessoaFisicaModel pessoaFisicaPorId = await BuscarId(id);
+
+            if (pessoaFisicaPorId == null)
+            {
+                throw new Exception($"Pessoa Fisica com o ID: {id} não foi localizada no banco de dados.");
+            }
+
+            _dbContext.PessoaFisica.Remove(pessoaFisicaPorId);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
     }
 }

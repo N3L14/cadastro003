@@ -1,5 +1,4 @@
 ﻿using Cadastro.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cadastro.Controllers

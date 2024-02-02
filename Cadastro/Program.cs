@@ -1,3 +1,8 @@
+using Cadastro.Data;
+using Cadastro.Repositorios;
+using Cadastro.Repositorios.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace Cadastro
 {
     public class Program
@@ -14,6 +19,15 @@ namespace Cadastro
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            // Configure the database
+            builder.Services.AddEntityFrameworkSqlServer()
+                .AddDbContext<CadastroDbContext>(
+                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+                );
+
+            // Configure dependencies
+            builder.Services.AddScoped<IPessoaFisicaRepositorio, PessoaFisicaRepositorio>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

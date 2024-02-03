@@ -6,9 +6,9 @@ namespace Cadastro.Data.Map
 {
     public class EnderecoMap : IEntityTypeConfiguration<EnderecoModel>
     {
+        
         public void Configure(EntityTypeBuilder<EnderecoModel> builder)
         {
-
             builder.HasKey(x => x.Id);
             builder.Property(x => x.PessoaId).IsRequired().HasMaxLength(10);
 
@@ -19,7 +19,7 @@ namespace Cadastro.Data.Map
             builder.Property(x => x.Cidade).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Estado).IsRequired();
 
-            builder.HasOne(x => x.pessoa);
+            builder.HasOne(x => x.pessoa).WithMany(Endereco).HasForeingKey(x => x.PessoaId).IsRequired(); ;
         }
     }
 }

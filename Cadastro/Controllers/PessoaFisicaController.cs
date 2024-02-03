@@ -36,6 +36,20 @@ namespace Cadastro.Controllers
             return Ok(pessoa);
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PessoaFisicaModel>> Atualizer([FromBody] PessoaFisicaModel pessoaFisicaModel, int id)
+        {
+            pessoaFisicaModel.Id = id;
+            PessoaFisicaModel pessoa = await _pessoaFisicaRepositorio.Atualizar(pessoaFisicaModel, id);
+            return Ok(pessoa);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<PessoaFisicaModel>> Deletar(int id)
+        {
+            bool deletado = await _pessoaFisicaRepositorio.Deletar(id);
+            return Ok(deletado);
+        }
 
     }
 }

@@ -19,6 +19,9 @@ namespace Cadastro
 
             // Configure dependencies
             builder.Services.AddScoped<IPessoaFisicaRepositorio, PessoaFisicaRepositorio>();
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            builder.Services.AddScoped<IEnderecoRepositorio, EnderecoRepositorio>();
+            builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 
             // Add services to the container.
 

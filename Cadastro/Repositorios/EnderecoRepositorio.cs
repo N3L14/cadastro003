@@ -38,7 +38,7 @@ namespace Cadastro.Repositorios
 
             if (enderecoPorId == null)
             {
-                throw new Exception($"Pessoa Fisica com o ID: {id} não foi localizada no banco de dados.");
+                throw new Exception($"Endereço com o ID: {id} não foi localizado no banco de dados.");
             }
 
             enderecoPorId.Logradouro = endereco.Logradouro;

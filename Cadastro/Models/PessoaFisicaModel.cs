@@ -12,13 +12,9 @@
         public string? CPF { get; set; }
         public string? RG { get; set; }
 
-        public List<EnderecoModel> Enderecos { get; set; }
-        public List<ContatoModel> Contatos { get; set; }
+        public List<EnderecoModel> Enderecos { get; set; } = new List<EnderecoModel>();
+        public List<EnderecoModel> Contatos { get; set; } = new List<EnderecoModel>();
+        
 
-        public PessoaFisicaModel()
-        {
-            Enderecos = new List<EnderecoModel>();
-            Contatos = new List<ContatoModel>();
-        }
     }
 }

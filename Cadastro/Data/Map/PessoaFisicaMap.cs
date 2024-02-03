@@ -18,7 +18,11 @@ namespace Cadastro.Data.Map
             builder.Property(x => x.CPF).IsRequired().HasMaxLength(15);
             builder.Property(x => x.RG).IsRequired().HasMaxLength(18);
 
+            //relations
             builder.HasOne(x => x.Usuario);
+
+            builder.HasMany(x => x.Enderecos).WithOne(x => x.pessoa).HasForeignKey(x => x.PessoaId).IsRequired();
+            builder.HasMany(x => x.Contatos).WithOne(x => x.pessoa).HasForeignKey(x => x.PessoaId).IsRequired();
         }
     }
 

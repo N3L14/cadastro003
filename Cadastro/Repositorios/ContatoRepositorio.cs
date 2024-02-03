@@ -14,56 +14,53 @@ namespace Cadastro.Repositorios
             _dbContext = cadastroDbContext;
         }
 
-        public async Task<List<EnderecoModel>> BuscarTodosEnderecos()
+        public async Task<List<ContatoModel>> BuscarTodosContatos()
         {
-            return await _dbContext.Endereco.ToListAsync();
+            return await _dbContext.Contato.ToListAsync();
         }
 
-        public async Task<EnderecoModel> BuscarId(int id)
+        public async Task<ContatoModel> BuscarId(int id)
         {
-            return await _dbContext.Endereco.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Contato.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<EnderecoModel> Adicionar(EnderecoModel endereco)
+        public async Task<ContatoModel> Adicionar(ContatoModel contato)
         {
-            await _dbContext.Endereco.AddAsync(endereco);
+            await _dbContext.Contato.AddAsync(contato);
             await _dbContext.SaveChangesAsync();
 
-            return endereco;
+            return contato;
         }
 
-        public async Task<EnderecoModel> Atualizar(EnderecoModel endereco, int id)
+        public async Task<ContatoModel> Atualizar(ContatoModel contato, int id)
         {
-            EnderecoModel enderecoPorId = await BuscarId(id);
+            ContatoModel contatoPorId = await BuscarId(id);
 
-            if (enderecoPorId == null)
+            if (contatoPorId == null)
             {
-                throw new Exception($"Pessoa Fisica com o ID: {id} não foi localizada no banco de dados.");
+                throw new Exception($"Contato com o ID: {id} não foi localizado no banco de dados.");
             }
 
-            enderecoPorId.Logradouro = endereco.Logradouro;
-            enderecoPorId.Numero = endereco.Numero;
-            enderecoPorId.CEP = endereco.CEP;
-            enderecoPorId.Complemento = endereco.Complemento;
-            enderecoPorId.Cidade = endereco.Cidade;
-            enderecoPorId.Estado = endereco.Estado;
+            contatoPorId.Nome = contato.Nome;
+            contatoPorId.Tipo = contato.Tipo;
+            contatoPorId.Contato = contato.Contato;
 
-            _dbContext.Endereco.Update(enderecoPorId);
+            _dbContext.Contato.Update(contatoPorId);
             await _dbContext.SaveChangesAsync();
 
-            return enderecoPorId;
+            return contatoPorId;
         }
 
         public async Task<bool> Deletar(int id)
         {
-            EnderecoModel enderecoPorId = await BuscarId(id);
+            ContatoModel contatoPorId = await BuscarId(id);
 
-            if (enderecoPorId == null)
+            if (contatoPorId == null)
             {
-                throw new Exception($"Endereco com o ID: {id} não foi localizado no banco de dados.");
+                throw new Exception($"Contato com o ID: {id} não foi localizado no banco de dados.");
             }
 
-            _dbContext.Endereco.Remove(enderecoPorId);
+            _dbContext.Contato.Remove(contatoPorId);
             await _dbContext.SaveChangesAsync();
             return true;
         }

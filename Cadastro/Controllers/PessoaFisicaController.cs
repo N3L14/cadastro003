@@ -1,4 +1,5 @@
 ﻿using Cadastro.Models;
+using Cadastro.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cadastro.Controllers
@@ -7,16 +8,32 @@ namespace Cadastro.Controllers
     [ApiController]
     public class PessoaFisicaController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<List<PessoaFisicaModel>> PessoaFisica()
+        private readonly IPessoaFisicaRepositorio _pessoaFisicaRepositorio;
+
+        public PessoaFisicaController(IPessoaFisicaRepositorio pessoaFisicaRepositorio)
         {
-            return Ok();
+            _pessoaFisicaRepositorio = pessoaFisicaRepositorio;
         }
 
         [HttpGet]
-        public ActionResult<List<PessoaFisicaModel>> PessoaFisicaId()
+        public async Task<ActionResult<List<PessoaFisicaModel>>> BuscaLista()
         {
-            return Ok();
+            List<PessoaFisicaModel> pessoasfisicas = await _pessoaFisicaRepositorio.BuscarTodasPessoas();
+            return Ok(pessoasfisicas);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PessoaFisicaModel>> BuscaId(int id)
+        {
+            PessoaFisicaModel pessoafisica = await _pessoaFisicaRepositorio.BuscarId(id);
+            return Ok(pessoafisica);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<PessoaFisicaModel>> Cadastrar([FromBody] PessoaFisicaModel pessoaFisicaModel)
+        {
+            PessoaFisicaModel pessoa = await _pessoaFisicaRepositorio.Adicionar(pessoaFisicaModel);
+            return Ok(pessoa);
         }
 
 

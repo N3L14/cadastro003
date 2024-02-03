@@ -6,6 +6,7 @@ namespace Cadastro.Models
     {
         public int Id { get; set; }
         public int PessoaId { get; set; }
+        public virtual PessoaFisicaModel? pessoa { get; set; }
 
         public string? Nome { get; set; }
         public TipoContato? Tipo { get; set; }

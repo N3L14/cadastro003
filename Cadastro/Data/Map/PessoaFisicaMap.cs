@@ -18,6 +18,7 @@ namespace Cadastro.Data.Map
             builder.Property(x => x.CPF).IsRequired().HasMaxLength(15);
             builder.Property(x => x.RG).IsRequired().HasMaxLength(18);
 
+            builder.HasOne(x => x.Usuario);
         }
     }
 

@@ -19,6 +19,7 @@ namespace Cadastro.Data.Map
             builder.Property(x => x.Cidade).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Estado).IsRequired();
 
+            builder.HasOne(x => x.pessoa);
         }
     }
 }

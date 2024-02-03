@@ -6,6 +6,7 @@ namespace Cadastro.Models
     {
         public int Id { get; set; }
         public int PessoaId { get; set; }
+        public virtual PessoaFisicaModel? pessoa {  get; set; }
 
         public string? Logradouro { get; set; }
         public string? Numero { get; set; }
@@ -13,7 +14,5 @@ namespace Cadastro.Models
         public string? Complemento { get; set; }
         public string? Cidade { get; set; }
         public EstadosBrasileiros? Estado { get; set; }
-
-        public PessoaFisicaModel Pessoa { get; set; } // pra andar pelos objetos
     }
 }

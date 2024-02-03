@@ -14,14 +14,14 @@ namespace Cadastro.Repositorios
             _dbContext = cadastroDbContext;
         }
 
-        public async Task<PessoaFisicaModel> BuscarId(int id)
-        {
-            return await _dbContext.PessoaFisica.FirstOrDefaultAsync(x => x.Id == id);
-        }
-
         public async Task<List<PessoaFisicaModel>> BuscarTodasPessoas()
         {
             return await _dbContext.PessoaFisica.ToListAsync();
+        }
+
+        public async Task<PessoaFisicaModel> BuscarId(int id)
+        {
+            return await _dbContext.PessoaFisica.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<PessoaFisicaModel> Adicionar(PessoaFisicaModel pessoaFisica)

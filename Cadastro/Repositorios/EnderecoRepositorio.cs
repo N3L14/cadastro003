@@ -16,12 +16,12 @@ namespace Cadastro.Repositorios
 
         public async Task<List<EnderecoModel>> BuscarTodosEnderecos()
         {
-            return await _dbContext.Endereco.ToListAsync();
+            return await _dbContext.Endereco.Include(x => x.pessoa).ToListAsync();
         }
 
         public async Task<EnderecoModel> BuscarId(int id)
         {
-            return await _dbContext.Endereco.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Endereco.Include(x => x.pessoa).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<EnderecoModel> Adicionar(EnderecoModel endereco)

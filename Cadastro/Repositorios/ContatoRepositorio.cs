@@ -16,12 +16,12 @@ namespace Cadastro.Repositorios
 
         public async Task<List<ContatoModel>> BuscarTodosContatos()
         {
-            return await _dbContext.Contato.ToListAsync();
+            return await _dbContext.Contato.Include(x => x.pessoa).ToListAsync();
         }
 
         public async Task<ContatoModel> BuscarId(int id)
         {
-            return await _dbContext.Contato.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Contato.Include(x => x.pessoa).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<ContatoModel> Adicionar(ContatoModel contato)

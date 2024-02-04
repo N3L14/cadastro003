@@ -16,7 +16,9 @@ namespace Cadastro.Data.Map
             builder.Property(x => x.Tipo).IsRequired();
             builder.Property(x => x.Contato).IsRequired().HasMaxLength(150);
 
-            builder.HasOne(x => x.pessoa);
+            //relations
+            builder.HasOne(x => x.pessoa).WithMany(x => x.Contatos).HasForeignKey(x => x.PessoaId).IsRequired(); ;
+
         }
     }
 }

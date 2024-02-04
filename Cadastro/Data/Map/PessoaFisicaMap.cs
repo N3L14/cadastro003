@@ -21,8 +21,8 @@ namespace Cadastro.Data.Map
             //relations
             builder.HasOne(x => x.Usuario);
 
-            builder.HasMany(x => x.Enderecos).WithOne(x => x.pessoa).HasForeignKey(x => x.PessoaId).IsRequired();
-            builder.HasMany(x => x.Contatos).WithOne(x => x.pessoa).HasForeignKey(x => x.PessoaId).IsRequired();
+            builder.HasMany(x => x.Enderecos).WithOne(x => x.pessoa).HasForeignKey(y => y.PessoaId).IsRequired();
+            builder.HasMany(x => x.Contatos).WithOne(x => x.pessoa).HasForeignKey(y => y.PessoaId).IsRequired();
         }
     }
 

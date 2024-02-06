@@ -15,7 +15,7 @@ namespace Cadastro
 
             // Configure the database
             builder.Services.AddDbContext<CadastroDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
 
             // Configure dependencies
             builder.Services.AddScoped<IPessoaFisicaRepositorio, PessoaFisicaRepositorio>();
@@ -32,8 +32,6 @@ namespace Cadastro
 
             var app = builder.Build();
 
-
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -44,7 +42,6 @@ namespace Cadastro
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
